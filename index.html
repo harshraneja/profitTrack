@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+         body {
+            background-color: #f8f9fa;
+        }
+        .btn-custom {
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+        }
+        .btn-custom:hover {
+            transform: scale(1.05);
+        }
+        .section {
+            display: none;
+        }
+        .card-style {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            background: white;
+        }
+        table th {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .table-total {
+            font-weight: bold;
+            background-color: #e9ecef;
+        }
+        
+    </style>
+</head>
+<body class="p-4">
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-primary me-2" onclick="showSection('form')">➕ Add Data</button>
+        <button class="btn btn-success" onclick="showSection('summary')">📊 Summary</button>
+    </div>
+
+    <!-- Add Data Form -->
+    <div id="form-section">
+        <h2>Add Data</h2>
+        <form method="post">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Weight</th>
+                        <th>Buying Price</th>
+                        <th>Selling Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>JEERA<input type="hidden" name="items[0][itemname]" value="JEERA"></td>
+                        <td><input type="number" class="form-control" name="items[0][weight]" step="any" required></td>
+                        <td><input type="number" class="form-control" name="items[0][buyingprice]" step="any" required></td>
+                        <td><input type="number" class="form-control" name="items[0][sellingprice]" step="any" required></td>
+                    </tr>
+                    <tr>
+                        <td>ARNDI<input type="hidden" name="items[1][itemname]" value="ARNDI"></td>
+                        <td><input type="number" class="form-control" name="items[1][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[1][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[1][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>EASHAB<input type="hidden" name="items[2][itemname]" value="EASHAB"></td>
+                        <td><input type="number" class="form-control" name="items[2][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[2][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[2][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>BAAJRI<input type="hidden" name="items[3][itemname]" value="BAAJRI"></td>
+                        <td><input type="number" class="form-control" name="items[3][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[3][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[3][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>SARSO<input type="hidden" name="items[4][itemname]" value="SARSO"></td>
+                        <td><input type="number" class="form-control" name="items[4][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[4][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[4][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>RAYDA<input type="hidden" name="items[5][itemname]" value="RAYDA"></td>
+                        <td><input type="number" class="form-control" name="items[5][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[5][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[5][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>JAMBHO <input type="hidden" name="items[6][itemname]" value="JAMBHO"></td>
+                        <td><input type="number" class="form-control" name="items[6][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[6][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[6][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>GEHU<input type="hidden" name="items[7][itemname]" value="GEHU"></td>
+                        <td><input type="number" class="form-control" name="items[7][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[7][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[7][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>GVAR<input type="hidden" name="items[8][itemname]" value="GVAR"></td>
+                        <td><input type="number" class="form-control" name="items[8][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[8][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[8][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>MOONG<input type="hidden" name="items[9][itemname]" value="MOONG"></td>
+                        <td><input type="number" class="form-control" name="items[9][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[9][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[9][sellingprice]" step="any"></td>
+                    </tr>
+                    <tr>
+                        <td>MOTH<input type="hidden" name="items[10][itemname]" value="MOTH"></td>
+                        <td><input type="number" class="form-control" name="items[10][weight]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[10][buyingprice]" step="any"></td>
+                        <td><input type="number" class="form-control" name="items[10][sellingprice]" step="any"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary px-4">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Summary Table -->
+    <div id="summary-section">
+        <h2>Summary</h2>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>Date</th>
+                    <th>Item</th>
+                    <th>Weight</th>
+                    <th>Buying Price</th>
+                    <th>Selling Price</th>
+                    <th>Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Hisab in Hisabs %}
+                <tr>
+                    <td>{{ Hisab[0] }}</td>
+                    <td>{{ Hisab[1] }}</td>
+                    <td>{{ Hisab[2] }}</td>
+                    <td>{{ Hisab[3] }}</td>
+                    <td>{{ Hisab[4] }}</td>
+                    <td>{{ Hisab[5] }}</td>
+                    <td>{{ Hisab[6] }}</td>
+                </tr>
+                {% endfor %}
+                <tr class="table-primary fw-bold">
+                    <td colspan="3" class="text-end">Total</td>
+                    <td>{{ totals[0] or 0 }}</td>
+                    <td>{{ totals[1] or 0 }}</td>
+                    <td>{{ totals[2] or 0 }}</td>
+                    <td>{{ totals[3] or 0 }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Item-wise totals -->
+        <h3 class="mt-5">Item-wise Totals</h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Total Weight</th>
+                    <th>Total Buying Price</th>
+                    <th>Total Selling Price</th>
+                    <th>Total Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in itemwise_totals %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function showSection(section) {
+            document.getElementById('form-section').style.display = 'none';
+            document.getElementById('summary-section').style.display = 'none';
+
+            if (section === 'form') {
+                document.getElementById('form-section').style.display = 'block';
+            } else if (section === 'summary') {
+                document.getElementById('summary-section').style.display = 'block';
+            }
+        }
+
+        // Show Add Data form by default when page loads
+        showSection('form');
+    </script>
+
+</body>
+</html>
